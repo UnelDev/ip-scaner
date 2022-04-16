@@ -51,7 +51,7 @@ class Scanner {
 		console.clear();
 		console.log('awaiting results...');
 		// on afiche le temps restant
-		Timer(Math.floor((time + 5) - new Date().getSeconds()));
+		Timer(Math.floor((time + 3) - new Date().getSeconds()));
 		Promise.all(promises).then(response => {
 			console.clear();
 			console.log(response);
