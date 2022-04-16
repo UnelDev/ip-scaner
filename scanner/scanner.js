@@ -39,7 +39,6 @@ class Scanner {
 		// on demare la bare de progression
 		progressBar.start(255, 0);
 		const promises = [];
-		const time = new Date().getSeconds();
 		for (let i = 0; i <= 255; i++) {
 			// pour chaque ip on va faire un ping
 			progressBar.update(i);
@@ -49,9 +48,8 @@ class Scanner {
 		// on attend que toutes les promises soit fini
 		progressBar.stop();
 		console.clear();
-		console.log('awaiting results...');
-		// on afiche le temps restant
-		Timer(Math.floor((time + 3) - new Date().getSeconds()));
+		console.log('awaiting results... please wait');
+		// Timer(Math.floor((time + 3) - new Date().getSeconds()));
 		Promise.all(promises).then(response => {
 			console.clear();
 			console.log(response);
