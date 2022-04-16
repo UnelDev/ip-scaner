@@ -29,7 +29,6 @@ class Scanner {
 		on afichera une progress bar pour monere l'avancemment*/
 		const check = require('./check/check.js');
 		const _cliProgress = require('cli-progress');
-		const Timer = require('./timer/timer.js');
 		const baseIp = this.localIp[0].split('.');
 		baseIp.pop();
 		// on fait la bare de progression
@@ -48,13 +47,29 @@ class Scanner {
 		// on attend que toutes les promises soit fini
 		progressBar.stop();
 		console.clear();
-		console.log('awaiting results... please wait');
-		// Timer(Math.floor((time + 3) - new Date().getSeconds()));
+		console.log('processing results... please wait');
 		Promise.all(promises).then(response => {
 			console.clear();
-			console.log(response);
+			control(response);
+
 		});
 	}
 }
-
+function control(ip) {
+	/* on va controlée les resultat de la fonction check.ping
+	on va aficher uniquemment les ip qui sont up*/
+	console.clear();
+	console.log('control results... please wait');
+	const up = [];
+	for (let i = 0; i < ip.length; i++) {
+		if (ip[i][1] == true) {
+			up.push(ip[i]);
+		}
+	}
+	up.sort();
+	console.clear();
+	for (let i = 0; i < up.length; i++) {
+		console.log('ip: ' + up[i][0] + ' is up');
+	}
+}
 module.exports = Scanner;

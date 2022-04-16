@@ -3,7 +3,7 @@ const check = require('ping');
 async function ping(host) {
 	return new Promise((resolve) => {
 		check.sys.probe(host, (isAlive) => {
-			resolve(isAlive);
+			resolve(new Array(host, isAlive));
 		});
 	});
 }

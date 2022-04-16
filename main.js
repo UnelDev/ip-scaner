@@ -29,7 +29,6 @@ function main() {
 			message: 'what do you want to do',
 			choices: [
 				'scan',
-				'Help',
 				'View credits',
 				'Quit'
 			]
@@ -39,9 +38,6 @@ function main() {
 			console.log('vos ip sont :' + scanner.getIp());
 			// on scan
 			scanner.scan();
-		} else if (menu.menu_select == 'Help') {
-			// help();
-
 		} else if (menu.menu_select == 'View credits') {
 			console.clear();
 			console.log('This tool was made by Unel:');
