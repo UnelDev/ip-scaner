@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "cli-progress": "^3.10.0",
+    "eslint": "^8.13.0",
+    "figlet": "^1.5.2",
+    "inquirer": "^8.2.2",
+    "ping": "^0.4.1",
+    "prompt-sync": "^4.2.0",
+    "prompt-sync-history": "^1.0.1"
+  },
+  "name": "ipscaner",
+  "version": "1.0.0",
+  "description": "un scaner d'ip",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
