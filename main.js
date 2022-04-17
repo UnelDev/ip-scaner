@@ -34,10 +34,7 @@ function main() {
 			]
 		});
 		if (menu.menu_select == 'scan') {
-			// on afiche L'ip du pc
-			console.log('vos ip sont :' + scanner.getIp());
-			// on scan
-			scanner.scan();
+			scanSelect();
 		} else if (menu.menu_select == 'View credits') {
 			console.clear();
 			console.log('This tool was made by Unel:');
@@ -53,5 +50,41 @@ function main() {
 		}
 	}, 10);
 }
+
+function scanSelect() {
+	// on afiche L'ip du pc
+	setTimeout(async () => {
+		console.log('vos ip sont :' + scanner.getIp());
+		const SelectScan = await inquirer.prompt({
+			// on fait un menu
+			name: 'menu_select',
+			type: 'list',
+			message: 'what type of scanner do you want to choose',
+			choices: [
+				'auto scan',
+				'two last step',
+				'tree last step',
+				'all step',
+				'return to menu'
+			]
+		});
+		if (SelectScan.menu_select == 'auto scan') {
+			// on scan
+			scanner.scan();
+		} else if (SelectScan.menu_select == 'two last step') {
+			// on scan
+			scanner.scan2Step();
+		} else if (SelectScan.menu_select == 'tree last step') {
+			// on scan
+			scanner.scan3Step();
+		} else if (SelectScan.menu_select == 'all step') {
+			// on scan
+			scanner.scan4Step();
+		} else {
+			main();
+		}
+	}, 10);
+}
+
 
 main();
