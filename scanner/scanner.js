@@ -3,6 +3,8 @@ elle va grace a la classe check tester quelle ip sont utilisiée*/
 class Scanner {
 	constructor() {
 		this.localIp = this.getIp();
+		this.numberFile = 0;
+		this.remouveFile();
 	}
 	getIp() {
 		/* on recupere l'ip du pc grace a la lib os*/
@@ -92,10 +94,6 @@ class Scanner {
 
 		});
 	}
-	test(ip) {
-		const check = require('./check/check.js');
-		return check(ip)
-	}
 	scan3Step() {
 		/* on  enleve les trois dernier teme de l'ip,
 		on va donc scanner toutes les ip entre 0 et 255 . 0 et 255 . 0 et 255 grace a la fonction chek.ping
@@ -181,7 +179,25 @@ class Scanner {
 			console.log('ip: ' + up[i][0] + ' is up');
 		}
 	}
+	async writeFile(datas) {
+		/* on va ecrire les resultat dans un fichier json
+		le fichier aura un nom dynamique donée par this.numberFile*/
+		const fs = require('fs');
+		const path = require('path');
+		const file = path.join('./result/' + this.numberFile + '.json');
+		fs.writeFileSync(path.resolve(file), datas);
+	}
+	async remouveFile() {
+		/* on va supprimer le fichier json
+		le fichier aura un nom dynamique donée par this.numberFile*/
+		const fs = require('fs').promises 
+		const path = require('path');
+		const directory = path.join('./result/');
 
+		fs.rmdir(directory, {recursive: true })
+	}
 }
+
+
 
 module.exports = Scanner;
