@@ -1,14 +1,14 @@
 console.log('init');
-const promptSync = require('prompt-sync');
+import promptSync from 'prompt-sync';
 const prompt = promptSync();
 console.log('prompt-sync is loaded');
-const figlet = require('figlet');
+import figlet from 'figlet';
 console.log('figlet is loaded');
-const inquirer = require('inquirer');
+import inquirer from 'inquirer';
 console.log('inquirer is loaded');
 let menu;
 // my librairies
-const Scanner = require('./Scanner/Scanner.js');
+import Scanner from './scanner/Scanner.js';
 // on inisialise Scanner
 const scanner = new Scanner();
 console.log('Scanner is loaded');
@@ -70,16 +70,16 @@ function scanSelect() {
 		});
 		if (SelectScan.menu_select == 'auto scan') {
 			// on scan
-			scanner.scan();
+			scanner.scan(1);
 		} else if (SelectScan.menu_select == 'two last step') {
 			// on scan
-			scanner.scan2Step();
+			scanner.scan(2);
 		} else if (SelectScan.menu_select == 'tree last step') {
 			// on scan
-			scanner.scan3Step();
+			scanner.scan(3);
 		} else if (SelectScan.menu_select == 'all step') {
 			// on scan
-			scanner.scan4Step();
+			scanner.scan(4);
 		} else {
 			main();
 		}

@@ -1,21 +1,28 @@
 {
-  "dependencies": {
-    "cli-progress": "^3.10.0",
-    "eslint": "^8.13.0",
-    "figlet": "^1.5.2",
-    "inquirer": "^8.2.2",
-    "ping": "^0.4.1",
-    "prompt-sync": "^4.2.0",
-    "prompt-sync-history": "^1.0.1",
-    "rimraf": "^3.0.2"
-  },
-  "name": "ipscaner",
+  "name": "ip-scaner",
   "version": "1.0.0",
-  "description": "un scaner d'ip",
+  "description": "",
   "main": "main.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnelDev/ip-scaner.git"
+  },
+  "author": "unel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UnelDev/ip-scaner/issues"
+  },
+  "homepage": "https://github.com/UnelDev/ip-scaner#readme",
+  "dependencies": {
+    "cli-progress": "^3.11.0",
+    "figlet": "^1.5.2",
+    "inquirer": "^8.2.4",
+    "os": "^0.1.2",
+    "ping": "^0.4.2",
+    "prompt-sync": "^4.2.0"
+  }
 }
