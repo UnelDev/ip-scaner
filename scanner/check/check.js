@@ -1,5 +1,5 @@
 /* cette classe va faire un ping sur l'ip fournis pour verifier l'existance de l'ip */
-import check from 'ping';
+const check = require('ping');
 async function ping(host) {
 	return new Promise((resolve) => {
 		check.sys.probe(host, (isAlive) => {
@@ -7,4 +7,4 @@ async function ping(host) {
 		});
 	});
 }
-export default ping;
+module.exports = ping;
